@@ -39,11 +39,11 @@ public class QuestionService {
 		return qsdao.findById(id);
 	}
 
-	public List<Question> getQuestionsForQuiz(String category, int numQ) {
-		List<Question> questions = qsdao.findQuestionsByCategory(category);
+	public List<Integer> getQuestionsForQuiz(String category, int numQ) {
+		List<Integer> questions = qsdao.findQuestionsByCategory(category);
 		Collections.shuffle(questions);
 		// Get the first 'numQ' random questions
-		List<Question> selectedQuestions = questions.subList(0, Math.min(numQ, questions.size()));
+		List<Integer> selectedQuestions = questions.subList(0, Math.min(numQ, questions.size()));
 		return selectedQuestions;
 	}
 

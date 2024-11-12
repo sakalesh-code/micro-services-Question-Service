@@ -14,5 +14,5 @@ public interface QuestionDao extends JpaRepository<Question, Integer> {
 
 	 // Fetch questions by category without ordering them randomly
     @Query(value = "SELECT * FROM question WHERE category = :category", nativeQuery = true)
-    List<Question> findQuestionsByCategory(@Param("category") String category);
+    List<Integer> findQuestionsByCategory(@Param("category") String category);
 }

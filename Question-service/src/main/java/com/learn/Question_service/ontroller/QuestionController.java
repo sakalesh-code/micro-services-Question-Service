@@ -67,8 +67,7 @@ public class QuestionController {
 			return new ResponseEntity<>(questions, HttpStatus.OK); // Return 200 OK if content exists
 		} catch (Exception e) {
 			e.printStackTrace();
-			return new ResponseEntity<>(new ArrayList<>(), HttpStatus.INTERNAL_SERVER_ERROR); // Handle errors
-																								// gracefully
+			return new ResponseEntity<>(new ArrayList<>(), HttpStatus.INTERNAL_SERVER_ERROR); // Handle errors gracefully
 		}
 	}
 
@@ -84,8 +83,8 @@ public class QuestionController {
 	}
 
 	@GetMapping("getQuestionForQuiz")
-	public ResponseEntity<List<Question>> getQuestionsForQuiz(@RequestParam String category, @RequestParam int numQ) {
-		List<Question> questions = service.getQuestionsForQuiz(category, numQ);
+	public ResponseEntity<List<Integer>> getQuestionsForQuiz(@RequestParam String category, @RequestParam int numQ) {
+		List<Integer> questions = service.getQuestionsForQuiz(category, numQ);
 		return new ResponseEntity<>((questions), HttpStatus.OK); // Return 200 OK if question found
 
 	}
